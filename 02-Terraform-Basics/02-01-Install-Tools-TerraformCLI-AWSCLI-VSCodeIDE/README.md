@@ -65,7 +65,7 @@ sudo rm -rf /usr/local/aws-cli
 ```
 # Configure AWS Credentials in command line
 $ aws configure
-AWS Access Key ID [None]: AKIASUF7DEFKSIAWMZ7K
+AWS Access Key ID [None]: AKIAIOSFODNN7EXAMPLE
 AWS Secret Access Key [None]: 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
 Default region name [None]: us-east-1
 Default output format [None]: json
@@ -90,3 +90,10 @@ cat $HOME/.aws/credentials
 ## Step-07: LinuxOS: Terraform & AWS CLI Install
 - [Download Terraform](https://www.terraform.io/downloads.html)
 - [Linux OS - Terraform Install](https://learn.hashicorp.com/tutorials/terraform/install-cli)
+
+## Step-08: Install git-secrets to prevent Access Key ID and Secret Key being committed to git repository
+- [Install git-secrets](https://github.com/awslabs/git-secrets)
+- Follow the instructions in the link above, then 
+- cd /path/to/my/repo
+- git secrets --install
+- git secrets --register-aws
