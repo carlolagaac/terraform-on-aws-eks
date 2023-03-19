@@ -343,7 +343,7 @@ Login to AWS Mgmt Console -> EC2 -> hr-dev-Bastion-Host -> Instance State -> Sto
 
 # Configure kubeconfig for kubectl
 aws eks --region <region-code> update-kubeconfig --name <cluster_name>
-aws eks --region us-east-1 update-kubeconfig --name hr-dev-eksdemo1
+aws eks --region ap-southeast-1 update-kubeconfig --name hr-dev-eksdemo1
 
 # Verify Kubernetes Worker Nodes using kubectl
 kubectl get nodes
@@ -370,7 +370,7 @@ Kalyans-Mac-mini:01-ekscluster-terraform-manifests kalyanreddy$ aws iam create-a
 {
     "AccessKey": {
         "UserName": "hr-dev-eksdeveloper1",
-        "AccessKeyId": "AKIASUF7HC7SYIH37PVL",
+        "AccessKeyId": "AKIAIOSFODNN7EXAMPLE",
         "Status": "Active",
         "SecretAccessKey": "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",
         "CreateDate": "2022-05-01T07:06:56+00:00"
@@ -389,9 +389,9 @@ aws configure list-profiles
 
 # Configure aws cli eksadmin1 Profile 
 aws configure --profile hr-dev-eksdeveloper1
-AWS Access Key ID: AKIASUF7HC7SXRQN6CFR
+AWS Access Key ID: AKIAIOSFODNN7EXAMPLE
 AWS Secret Access Key: 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
-Default region: us-east-1
+Default region: ap-southeast-1
 Default output format: json
 
 # Get current user configured in AWS CLI
@@ -430,8 +430,8 @@ export AWS_SECRET_ACCESS_KEY=RoleSecretAccessKey
 export AWS_SESSION_TOKEN=RoleSessionToken
 
 ## SAMPLE FOR REFERENCE
-export AWS_ACCESS_KEY_ID=ASIASUF7HC7SUMOZOE27
-export AWS_SECRET_ACCESS_KEY=U/Lf3itP39cDnUIpiex/mOTuiblLQxxK2Hz+ojlW
+export AWS_ACCESS_KEY_ID=AKIAIOSFODNN7EXAMPLE
+export AWS_SECRET_ACCESS_KEY=wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY
 export AWS_SESSION_TOKEN=IQoJb3JpZ2luX2VjEGAaCXVzLWVhc3QtMSJHMEUCIBRdy8WD5igET85FHvLD0/KXyeK0xoxDZNEfJW471w+xAiEAywivOprTo8KR/9d4lasoOO5/vzFDGzbwlMjxjALZx5gqnQIIKBADGgwxODA3ODk2NDczMzMiDK6eR4+1U3m6nQQQgyr6Aa/+7ATi1t6yKahwUIAjzGXF6b0H38e3D8Twzt5lecW+WV9nhG8K1DubSEwwe3C1bnKBf9RQd1tJj70dwy2HNUWEFvL1yqKvudWACNf76HNJDZRNZmJ73+c3BqyKBRlSOA5c3Jh1TF4VTPGyJ/JXUFauEmdFT0ULBOySC+YMXMJj2ebqfd8+7jnBbWtdrjfKQWyWfhhKWH+zoLQ1Bikia/jXysg5KtwDAENq5nErDr8LmfIG1DSoOuDxyHQPVuXrUyYLvp3nEHL1a7V0vNg34FnSYg1GvLg6Z3yftccmRT9c9Aea87kgmAnUF4oMubNqA75m/gYUyvx02BkwiuW4kwY6nQGk8JzQJc4mRg4i85viyb0Zmy6iX1kQAokC8KsQMA4SnJCDnsMqOcIo+vvuZ0ehyl8am2KNRN1kh11BQ4hAIM7LSU37YP8cqHj3lxDDLvGZDIKoeHCQ0Fnu7+zRbNlPp1fQ/tccnuLLPSagiPKFNfVk17RhcThy2llcvkjODR7wfaBtSykL5QjHitVWZl0AV6+9Xw0nNW4BaEaQHJ68
 
 # Verify current user configured in aws cli
@@ -453,10 +453,10 @@ cat $HOME/.kube/config
 
 # Configure kubeconfig for kubectl
 aws eks --region <region-code> update-kubeconfig --name <cluster_name>
-aws eks --region us-east-1 update-kubeconfig --name hr-dev-eksdemo1
+aws eks --region ap-southeast-1 update-kubeconfig --name hr-dev-eksdemo1
 
 # Describe Cluster
-aws eks --region us-east-1 describe-cluster --name hr-dev-eksdemo1 --query cluster.status
+aws eks --region ap-southeast-1 describe-cluster --name hr-dev-eksdemo1 --query cluster.status
 
 # Verify Kubernetes Nodes
 kubectl get nodes
@@ -692,8 +692,8 @@ export AWS_SECRET_ACCESS_KEY=RoleSecretAccessKey
 export AWS_SESSION_TOKEN=RoleSessionToken
 
 ## SAMPLE FOR REFERENCE
-export AWS_ACCESS_KEY_ID=ASIASUF7HC7SYHUYYMHJ
-export AWS_SECRET_ACCESS_KEY=2KJbWzxVypARS3MNIVSxLBZ8Y+JKev7DJhMRfgaS
+export AWS_ACCESS_KEY_ID=AKIAIOSFODNN7EXAMPLE
+export AWS_SECRET_ACCESS_KEY=wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY
 export AWS_SESSION_TOKEN=IQoJb3JpZ2luX2VjEGAaCXVzLWVhc3QtMSJGMEQCIF1KjPD13XQOIzN/Jfvm61DxhTP8g/1I1AFhblVhpOkgAiBfMKAMAHfVYb900w277XusdKDPN0HEf2Lt49KLIckYziqdAggpEAMaDDE4MDc4OTY0NzMzMyIMpxwC7EteevGTrtLfKvoBAZ7CusBdhytrz8RFYauWTw5pINN9BeNAYkEHBHtQ5g1+sNtvi3xT9cfrYEM4/jTYzT8n15+Ne/QXs7Nb6O3aItW0/eZM2UdQGVKgQ0KIQeKXMbWA4Ick3bnLTs5rqWv50V/TC+7KhvpKfYkZNvRbYtQvanDjugv7zhNFgJwnKKtMNXx3yMwExaRfaDVXZXI2Taj7YDOKwtf4U+WirikJDHS53p0D4bwG65VPKlAPvyrdOF3r8wp5HC3qlAmS2wJXTQLLpI0e9AkTI4UeQ2h7cahHVs7JjPg7BLXXwgsnd4oknJNJ1nv6VmKZ8PBtOI9pPz8AjYnbIe1JkTCK/LiTBjqeASStIhf35K/7Z6ds/DjZ84BYS8GaIYWex9FmR7MTxscNOoEFtqbhNqi6+p/bYF/iB1TGFeVBnzFL1TToNHQ154Y9zu67sw41JfgRwHney2hSvZowd3f0Fez+w4JCZFFCheogilpwf95byMZQcyagZ58hjhXHbpG5HMVE6KIZRyv4210MGvXAgRzL3YlqexVlaUpnzytWzADOvaHycsyg
 
 # Verify current user configured in aws cli
@@ -715,7 +715,7 @@ cat $HOME/.kube/config
 
 # Configure kubeconfig for kubectl
 aws eks --region <region-code> update-kubeconfig --name <cluster_name>
-aws eks --region us-east-1 update-kubeconfig --name hr-dev-eksdemo1
+aws eks --region ap-southeast-1 update-kubeconfig --name hr-dev-eksdemo1
 
 # Verify Kubernetes Nodes
 kubectl get nodes
@@ -785,11 +785,11 @@ Kalyans-Mac-mini:01-ekscluster-terraform-manifests kalyanreddy$
 - Login to AWS Mgmt Console
   - **Username:** hr-dev-eksdeveloper1
   - **Password:** @EKSUser101
-- Go to EKS Servie: https://console.aws.amazon.com/eks/home?region=us-east-1#
+- Go to EKS Servie: https://console.aws.amazon.com/eks/home?region=ap-southeast-1#
 ```t
 # Error
 Error loading clusters
-User: arn:aws:iam::180789647333:user/hr-dev-eksadmin1 is not authorized to perform: eks:ListClusters on resource: arn:aws:eks:us-east-1:180789647333:cluster/*
+User: arn:aws:iam::180789647333:user/hr-dev-eksadmin1 is not authorized to perform: eks:ListClusters on resource: arn:aws:eks:ap-southeast-1:180789647333:cluster/*
 ```  
 - Click on **Switch Role**
   - **Account:** <YOUR_AWS_ACCOUNT_ID> 

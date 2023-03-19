@@ -38,7 +38,7 @@ terraform apply -auto-approve
 
 # Configure kubeconfig for kubectl
 aws eks --region <region-code> update-kubeconfig --name <cluster_name>
-aws eks --region us-east-1 update-kubeconfig --name hr-dev-eksdemo1
+aws eks --region ap-southeast-1 update-kubeconfig --name hr-dev-eksdemo1
 
 # Verify Kubernetes Worker Nodes using kubectl
 kubectl get nodes
@@ -183,7 +183,7 @@ aws iam create-access-key --user-name eksadmin1
 {
     "AccessKey": {
         "UserName": "eksadmin1",
-        "AccessKeyId": "AKIASUF7HC7SRJ3MIWDF",
+        "AccessKeyId": "AKIAIOSFODNN7EXAMPLE",
         "Status": "Active",
         "SecretAccessKey": "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",
         "CreateDate": "2022-03-12T05:37:39+00:00"
@@ -201,9 +201,9 @@ aws configure list-profiles
 
 # Configure aws cli eksadmin1 Profile 
 aws configure --profile eksadmin1
-AWS Access Key ID: AKIASUF7HC7SRJ3MIWDF
+AWS Access Key ID: AKIAIOSFODNN7EXAMPLE
 AWS Secret Access Key: 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
-Default region: us-east-1
+Default region: ap-southeast-1
 Default output format: json
 
 # Get current user configured in AWS CLI
@@ -232,7 +232,7 @@ cat $HOME/.kube/config
 
 # Configure kubeconfig for kubectl
 aws eks --region <region-code> update-kubeconfig --name <cluster_name>
-aws eks --region us-east-1 update-kubeconfig --name hr-dev-eksdemo1
+aws eks --region ap-southeast-1 update-kubeconfig --name hr-dev-eksdemo1
 Observation: Should fail
 ```
 
@@ -253,8 +253,8 @@ export AWS_SECRET_ACCESS_KEY=RoleSecretAccessKey
 export AWS_SESSION_TOKEN=RoleSessionToken
 
 ## SAMPLE FOR REFERENCE
-export AWS_ACCESS_KEY_ID=ASIASUF7HC7SQXB5EHPV
-export AWS_SECRET_ACCESS_KEY=oSIwk+vJW9XoXbPTHt5+6/mNQqMJzLul1QRJ1d2C
+export AWS_ACCESS_KEY_ID=AKIAIOSFODNN7EXAMPLE
+export AWS_SECRET_ACCESS_KEY=wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY
 export AWS_SESSION_TOKEN=IQoJb3JpZ2luX2VjEK7//////////wEaCXVzLWVhc3QtMSJIMEYCIQDPkGKDxwIdGt+D2vBHGYtiu4gJzQor6+saBwbKO6ZQkAIhANRm3TnVVnBwewDnZTAklwt/ghy4SvA204YaTpEnv1yVKp8CCCcQAxoMMTgwNzg5NjQ3MzMzIgw9un24WGzvuG2wQ6cq/AFspVDHeXeAHbUHyAc2eh9WcjSG0NQ9cE/6Mjk/9PseI96xhOxp8q/fGoqELyrxy5kBSI0qEaPPIgWOGZ/v410P/GrneVrJ3kY7w18wUV5te1FzfE0VuALwILiXwnyAzv21w7PmqAufpGBGf/nU5oqQlsRGwNqX9nLvkmWutY9zMg2dxOtA9kRUqbDpi3zzSXypH5gkF1ZhCqxxMdjvOu4XkzjrU2vprwt2Q4joXHCOYhqEUJ0CpfKga58QnLJL0EfYWBj4UIU3/LVCxN6HBfqH84lYwEOvK43FMvNQ2bhSeueGCq624Zj/insUkP0uhqbDrxeJ7lU0cmX2JrcwtOewkQY6nAHEpez7tN6MXY5/QQWokVe1hgqB5AzpoBGRoOa2hjvH5hcvmFfJ/S360hPa60JXR+mewZG6p8O7LVwtOHTb9/h6+10iud8zdKM45+rYJAjb+geiGanY1WIvfh8DOFmpdEQQCq7QrUlLvJJ0grtoSv9u1sczPUlyWCJDkj20y8Pb4kupDSPKm96DU/3Do5vMktr5T7l/bJQWMMh7z2M=
 
 
@@ -276,10 +276,10 @@ cat $HOME/.kube/config
 
 # Configure kubeconfig for kubectl
 aws eks --region <region-code> update-kubeconfig --name <cluster_name>
-aws eks --region us-east-1 update-kubeconfig --name hr-dev-eksdemo1
+aws eks --region ap-southeast-1 update-kubeconfig --name hr-dev-eksdemo1
 
 # Describe Cluster
-aws eks --region us-east-1 describe-cluster --name hr-dev-eksdemo1 --query cluster.status
+aws eks --region ap-southeast-1 describe-cluster --name hr-dev-eksdemo1 --query cluster.status
 
 # List Kubernetes Nodes
 kubectl get nodes
@@ -306,11 +306,11 @@ Kalyans-Mac-mini:01-ekscluster-terraform-manifests kalyanreddy$
 - Login to AWS Mgmt Console
   - Username: eksadmin1
   - Password: @EKSUser101
-- Go to EKS Servie: https://console.aws.amazon.com/eks/home?region=us-east-1#
+- Go to EKS Servie: https://console.aws.amazon.com/eks/home?region=ap-southeast-1#
 ```t
 # Error
 Error loading clusters
-User: arn:aws:iam::180789647333:user/eksadmin1 is not authorized to perform: eks:ListClusters on resource: arn:aws:eks:us-east-1:180789647333:cluster/*
+User: arn:aws:iam::180789647333:user/eksadmin1 is not authorized to perform: eks:ListClusters on resource: arn:aws:eks:ap-southeast-1:180789647333:cluster/*
 ```  
 - Click on **Switch Role**
   - **Account:** <YOUR_AWS_ACCOUNT_ID> 
@@ -349,7 +349,7 @@ aws iam delete-login-profile --user-name eksadmin1
 # Delete IAM Access Keys
 aws iam list-access-keys --user-name eksadmin1
 aws iam delete-access-key --access-key-id <REPLACE AccessKeyId> --user-name eksadmin1
-aws iam delete-access-key --access-key-id AKIASUF7HC7SRJ3MIWDF --user-name eksadmin1
+aws iam delete-access-key --access-key-id AKIAIOSFODNN7EXAMPLE --user-name eksadmin1
 
 # Delete IAM user
 aws iam delete-user --user-name eksadmin1

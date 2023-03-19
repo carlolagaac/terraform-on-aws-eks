@@ -168,7 +168,7 @@ User: hr-dev-eksadmin1
 {
     "AccessKey": {
         "UserName": "hr-dev-eksadmin1",
-        "AccessKeyId": "AKIASUF7HC7S4XG3ZL3W",
+        "AccessKeyId": "AKIAIOSFODNN7EXAMPLE",
         "Status": "Active",
         "SecretAccessKey": "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",
         "CreateDate": "2022-03-12T04:21:33+00:00"
@@ -195,9 +195,9 @@ aws configure list-profiles
 
 # Configure aws cli hr-dev-eksadmin1 Profile 
 aws configure --profile hr-dev-eksadmin1
-AWS Access Key ID: AKIASUF7HC7S4XG3ZL3W
+AWS Access Key ID: AKIAIOSFODNN7EXAMPLE
 AWS Secret Access Key: 2Qu53xZVjazSnDTTp5PH1PswbUKff0SByaNa53qE
-Default region: us-east-1
+Default region: ap-southeast-1
 Default output format: json
 
 # To list all your profile names
@@ -212,7 +212,7 @@ cat $HOME/.kube/config
 
 # Configure kubeconfig for kubectl with AWS CLI Profile hr-dev-eksadmin1
 aws eks --region <region-code> update-kubeconfig --name <cluster_name> --profile <AWS-CLI-PROFILE-NAME>
-aws eks --region us-east-1 update-kubeconfig --name hr-dev-eksdemo1 --profile hr-dev-eksadmin1
+aws eks --region ap-southeast-1 update-kubeconfig --name hr-dev-eksdemo1 --profile hr-dev-eksadmin1
 Observation:
 1. It should pass
 
@@ -247,7 +247,7 @@ User: hr-dev-eksadmin1
 {
     "AccessKey": {
         "UserName": "hr-dev-eksadmin2",
-        "AccessKeyId": "AKIASUF7HC7SRVES7ADE",
+        "AccessKeyId": "AKIAIOSFODNN7EXAMPLE",
         "Status": "Active",
         "SecretAccessKey": "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",
         "CreateDate": "2022-03-12T04:27:46+00:00"
@@ -273,9 +273,9 @@ aws configure list-profiles
 
 # Configure aws cli hr-dev-eksadmin1 Profile 
 aws configure --profile hr-dev-eksadmin2
-AWS Access Key ID: AKIASUF7HC7SRVES7ADE
+AWS Access Key ID: AKIAIOSFODNN7EXAMPLE
 AWS Secret Access Key: sASjutJvDS9GS0R7MFBMXr/F05fFV53kMpVnlyQ5
-Default region: us-east-1
+Default region: ap-southeast-1
 Default output format: json
 
 # To list all your profile names
@@ -290,7 +290,7 @@ cat $HOME/.kube/config
 
 # Configure kubeconfig for kubectl with AWS CLI Profile hr-dev-eksadmin1
 aws eks --region <region-code> update-kubeconfig --name <cluster_name> --profile <AWS-CLI-PROFILE-NAME>
-aws eks --region us-east-1 update-kubeconfig --name hr-dev-eksdemo1 --profile hr-dev-eksadmin2
+aws eks --region ap-southeast-1 update-kubeconfig --name hr-dev-eksdemo1 --profile hr-dev-eksadmin2
 Observation:
 1. It should pass
 
