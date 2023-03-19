@@ -1,6 +1,6 @@
 # EC2 Instance
 resource "aws_instance" "myec2vm" {
-  ami = data.aws_ami.amzlinux2.id
+  ami = data.aws_ami.amzlinux2023.id
   instance_type = var.instance_type
   #instance_type = var.instance_type_list[1]  # For List
   #nstance_type = var.instance_type_map["prod"]  # For Map
