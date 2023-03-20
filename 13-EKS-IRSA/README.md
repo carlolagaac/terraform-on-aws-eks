@@ -115,7 +115,7 @@ output "aws_iam_openid_connect_provider_extract_from_arn" {
 - **Sample Output for reference**
 ```t
 # Sample Outputs for Reference
-aws_iam_openid_connect_provider_arn = "arn:aws:iam::180789647333:oidc-provider/oidc.eks.ap-southeast-1.amazonaws.com/id/A9DED4A4FA341C2A5D985A260650F232"
+aws_iam_openid_connect_provider_arn = "arn:aws:iam::123456789012:oidc-provider/oidc.eks.ap-southeast-1.amazonaws.com/id/A9DED4A4FA341C2A5D985A260650F232"
 aws_iam_openid_connect_provider_extract_from_arn = "oidc.eks.ap-southeast-1.amazonaws.com/id/A9DED4A4FA341C2A5D985A260650F232"
 ```
 

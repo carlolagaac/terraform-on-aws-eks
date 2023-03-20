@@ -247,7 +247,7 @@ kubectl -n kube-system get sa
 kubectl -n kube-system describe sa cluster-autoscaler 
 Observation: 
 1. Review Annotations section for IAM Role annotated on Kubernetes Service Account
-2. Sample (Annotations:         eks.amazonaws.com/role-arn: arn:aws:iam::180789647333:role/hr-dev-cluster-autoscaler)
+2. Sample (Annotations:         eks.amazonaws.com/role-arn: arn:aws:iam::123456789012:role/hr-dev-cluster-autoscaler)
 
 # List Config Maps
 kubectl -n kube-system get cm 

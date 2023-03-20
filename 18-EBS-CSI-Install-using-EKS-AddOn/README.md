@@ -159,7 +159,7 @@ Observation:
 kubectl -n kube-system describe sa ebs-csi-controller-sa
 Observation:
 1. Verify the "Annotations" field and you should find our IAM Role created for EBS CSI is associated with EKS Cluster EBS Service Account.
-Annotations:         eks.amazonaws.com/role-arn: arn:aws:iam::180789647333:role/hr-dev-ebs-csi-iam-role
+Annotations:         eks.amazonaws.com/role-arn: arn:aws:iam::123456789012:role/hr-dev-ebs-csi-iam-role
 2. Also review the labels
 Labels:              app.kubernetes.io/managed-by=EKS
                      app.kubernetes.io/name=aws-ebs-csi-driver

@@ -61,7 +61,7 @@ User: eksadmin2
         "UserName": "eksadmin2",
         "AccessKeyId": "AKIAIOSFODNN7EXAMPLE",
         "Status": "Active",
-        "SecretAccessKey": "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",
+        "SecretAccessKey": "wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY",
         "CreateDate": "2022-03-12T03:17:16+00:00"
     }
 }
@@ -82,7 +82,7 @@ User: eksadmin2
 ```t
 # Error 
 Error loading clusters
-User: arn:aws:iam::180789647333:user/eksadmin2 is not authorized to perform: eks:ListClusters on resource: arn:aws:eks:ap-southeast-1:180789647333:cluster/*
+User: arn:aws:iam::123456789012:user/eksadmin2 is not authorized to perform: eks:ListClusters on resource: arn:aws:eks:ap-southeast-1:123456789012:cluster/*
 ```
 
 ## Step-06: Configure Kubernetes configmap aws-auth with eksadmin2 user
@@ -107,11 +107,11 @@ kubectl -n kube-system edit configmap aws-auth
 
 ## mapUsers TEMPLATE - Replaced with IAM User ARN
   mapUsers: |
-    - userarn: arn:aws:iam::180789647333:user/eksadmin1
+    - userarn: arn:aws:iam::123456789012:user/eksadmin1
       username: eksadmin1
       groups:
         - system:masters     
-    - userarn: arn:aws:iam::180789647333:user/eksadmin2
+    - userarn: arn:aws:iam::123456789012:user/eksadmin2
       username: eksadmin2
       groups:
         - system:masters              
@@ -130,14 +130,14 @@ data:
     - groups:
       - system:bootstrappers
       - system:nodes
-      rolearn: arn:aws:iam::180789647333:role/hr-dev-eks-nodegroup-role
+      rolearn: arn:aws:iam::123456789012:role/hr-dev-eks-nodegroup-role
       username: system:node:{{EC2PrivateDNSName}}
   mapUsers: |
-    - userarn: arn:aws:iam::180789647333:user/eksadmin1
+    - userarn: arn:aws:iam::123456789012:user/eksadmin1
       username: eksadmin1
       groups:
         - system:masters
-    - userarn: arn:aws:iam::180789647333:user/eksadmin2
+    - userarn: arn:aws:iam::123456789012:user/eksadmin2
       username: eksadmin2
       groups:
         - system:masters
@@ -161,7 +161,7 @@ aws configure list-profiles
 # Configure aws cli eksadmin1 Profile 
 aws configure --profile eksadmin2
 AWS Access Key ID: AKIAIOSFODNN7EXAMPLE
-AWS Secret Access Key: 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
+AWS Secret Access Key: wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY
 Default region: ap-southeast-1
 Default output format: json
 
@@ -194,7 +194,7 @@ Observation: At the end of kubeconfig file we find that AWS_PROFILE it is using 
 ## ERROR MESSAGE
 Kalyans-MacBook-Pro:01-ekscluster-terraform-manifests kdaida$ aws eks --region ap-southeast-1 update-kubeconfig --name hr-dev-eksdemo1 --profile eksadmin2
 
-An error occurred (AccessDeniedException) when calling the DescribeCluster operation: User: arn:aws:iam::180789647333:user/eksadmin2 is not authorized to perform: eks:DescribeCluster on resource: arn:aws:eks:ap-southeast-1:180789647333:cluster/hr-dev-eksdemo1
+An error occurred (AccessDeniedException) when calling the DescribeCluster operation: User: arn:aws:iam::123456789012:user/eksadmin2 is not authorized to perform: eks:DescribeCluster on resource: arn:aws:eks:ap-southeast-1:123456789012:cluster/hr-dev-eksdemo1
 Kalyans-MacBook-Pro:01-ekscluster-terraform-manifests kdaida$ 
 ```
 
@@ -211,7 +211,7 @@ aws iam create-policy --policy-name eks-full-access-policy --policy-document fil
 
 # Attach Policy to eksadmin2 user (Update ACCOUNT-ID and Username)
 aws iam attach-user-policy --policy-arn <POLICY-ARN> --user-name <USER-NAME>
-aws iam attach-user-policy --policy-arn arn:aws:iam::180789647333:policy/eks-full-access-policy --user-name eksadmin2
+aws iam attach-user-policy --policy-arn arn:aws:iam::123456789012:policy/eks-full-access-policy --user-name eksadmin2
 ```
 ```json
 {

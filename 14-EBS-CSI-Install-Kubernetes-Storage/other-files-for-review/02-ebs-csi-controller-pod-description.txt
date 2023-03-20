@@ -53,7 +53,7 @@ Containers:
       AWS_SECRET_ACCESS_KEY:        <set to the key 'access_key' in secret 'aws-secret'>  Optional: true
       AWS_DEFAULT_REGION:           ap-southeast-1
       AWS_REGION:                   ap-southeast-1
-      AWS_ROLE_ARN:                 arn:aws:iam::180789647333:role/hr-dev-ebs-csi-iam-role
+      AWS_ROLE_ARN:                 arn:aws:iam::123456789012:role/hr-dev-ebs-csi-iam-role
       AWS_WEB_IDENTITY_TOKEN_FILE:  /var/run/secrets/eks.amazonaws.com/serviceaccount/token
     Mounts:
       /var/lib/csi/sockets/pluginproxy/ from socket-dir (rw)
@@ -80,7 +80,7 @@ Containers:
       ADDRESS:                      /var/lib/csi/sockets/pluginproxy/csi.sock
       AWS_DEFAULT_REGION:           ap-southeast-1
       AWS_REGION:                   ap-southeast-1
-      AWS_ROLE_ARN:                 arn:aws:iam::180789647333:role/hr-dev-ebs-csi-iam-role
+      AWS_ROLE_ARN:                 arn:aws:iam::123456789012:role/hr-dev-ebs-csi-iam-role
       AWS_WEB_IDENTITY_TOKEN_FILE:  /var/run/secrets/eks.amazonaws.com/serviceaccount/token
     Mounts:
       /var/lib/csi/sockets/pluginproxy/ from socket-dir (rw)
@@ -104,7 +104,7 @@ Containers:
       ADDRESS:                      /var/lib/csi/sockets/pluginproxy/csi.sock
       AWS_DEFAULT_REGION:           ap-southeast-1
       AWS_REGION:                   ap-southeast-1
-      AWS_ROLE_ARN:                 arn:aws:iam::180789647333:role/hr-dev-ebs-csi-iam-role
+      AWS_ROLE_ARN:                 arn:aws:iam::123456789012:role/hr-dev-ebs-csi-iam-role
       AWS_WEB_IDENTITY_TOKEN_FILE:  /var/run/secrets/eks.amazonaws.com/serviceaccount/token
     Mounts:
       /var/lib/csi/sockets/pluginproxy/ from socket-dir (rw)
@@ -127,7 +127,7 @@ Containers:
       ADDRESS:                      /var/lib/csi/sockets/pluginproxy/csi.sock
       AWS_DEFAULT_REGION:           ap-southeast-1
       AWS_REGION:                   ap-southeast-1
-      AWS_ROLE_ARN:                 arn:aws:iam::180789647333:role/hr-dev-ebs-csi-iam-role
+      AWS_ROLE_ARN:                 arn:aws:iam::123456789012:role/hr-dev-ebs-csi-iam-role
       AWS_WEB_IDENTITY_TOKEN_FILE:  /var/run/secrets/eks.amazonaws.com/serviceaccount/token
     Mounts:
       /var/lib/csi/sockets/pluginproxy/ from socket-dir (rw)
@@ -148,7 +148,7 @@ Containers:
     Environment:
       AWS_DEFAULT_REGION:           ap-southeast-1
       AWS_REGION:                   ap-southeast-1
-      AWS_ROLE_ARN:                 arn:aws:iam::180789647333:role/hr-dev-ebs-csi-iam-role
+      AWS_ROLE_ARN:                 arn:aws:iam::123456789012:role/hr-dev-ebs-csi-iam-role
       AWS_WEB_IDENTITY_TOKEN_FILE:  /var/run/secrets/eks.amazonaws.com/serviceaccount/token
     Mounts:
       /csi from socket-dir (rw)

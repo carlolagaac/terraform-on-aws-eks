@@ -5,7 +5,7 @@ output "account_id" {
 }
 
 
-# Sample Role Format: arn:aws:iam::180789647333:role/hr-dev-eks-nodegroup-role
+# Sample Role Format: arn:aws:iam::123456789012:role/hr-dev-eks-nodegroup-role
 # Locals Block
 locals {
   configmap_roles = [

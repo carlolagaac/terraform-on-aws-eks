@@ -82,7 +82,7 @@ output "account_id" {
   value = data.aws_caller_identity.current.account_id
 }
 
-# Sample Role Format: arn:aws:iam::180789647333:role/hr-dev-eks-nodegroup-role
+# Sample Role Format: arn:aws:iam::123456789012:role/hr-dev-eks-nodegroup-role
 # Locals Block
 locals {
   configmap_roles = [
@@ -170,7 +170,7 @@ User: hr-dev-eksadmin1
         "UserName": "hr-dev-eksadmin1",
         "AccessKeyId": "AKIAIOSFODNN7EXAMPLE",
         "Status": "Active",
-        "SecretAccessKey": "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",
+        "SecretAccessKey": "wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY",
         "CreateDate": "2022-03-12T04:21:33+00:00"
     }
 }
@@ -196,7 +196,7 @@ aws configure list-profiles
 # Configure aws cli hr-dev-eksadmin1 Profile 
 aws configure --profile hr-dev-eksadmin1
 AWS Access Key ID: AKIAIOSFODNN7EXAMPLE
-AWS Secret Access Key: 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
+AWS Secret Access Key: wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY
 Default region: ap-southeast-1
 Default output format: json
 
@@ -249,7 +249,7 @@ User: hr-dev-eksadmin1
         "UserName": "hr-dev-eksadmin2",
         "AccessKeyId": "AKIAIOSFODNN7EXAMPLE",
         "Status": "Active",
-        "SecretAccessKey": "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",
+        "SecretAccessKey": "wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY",
         "CreateDate": "2022-03-12T04:27:46+00:00"
     }
 }
@@ -274,7 +274,7 @@ aws configure list-profiles
 # Configure aws cli hr-dev-eksadmin1 Profile 
 aws configure --profile hr-dev-eksadmin2
 AWS Access Key ID: AKIAIOSFODNN7EXAMPLE
-AWS Secret Access Key: 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
+AWS Secret Access Key: wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY
 Default region: ap-southeast-1
 Default output format: json
 

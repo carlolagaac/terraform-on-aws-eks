@@ -131,7 +131,7 @@ kubectl -n kube-system get configmap aws-auth -o yaml
       - system:bootstrappers
       - system:nodes
       - system:node-proxier
-      rolearn: arn:aws:iam::180789647333:role/hr-dev-eks-fargate-profile-role-apps
+      rolearn: arn:aws:iam::123456789012:role/hr-dev-eks-fargate-profile-role-apps
       username: system:node:{{SessionName}}
 ```
 
@@ -144,8 +144,8 @@ aws sts get-caller-identity
 Kalyans-MacBook-Pro:04-fargate-profiles-terraform-manifests kdaida$ aws sts get-caller-identity
 {
     "UserId": "AIDASUF7HC7SSJRDGMFBM",
-    "Account": "180789647333",
-    "Arn": "arn:aws:iam::180789647333:user/kalyandev"
+    "Account": "123456789012",
+    "Arn": "arn:aws:iam::123456789012:user/kalyandev"
 }
 Kalyans-MacBook-Pro:04-fargate-profiles-terraform-manifests kdaida$ 
 

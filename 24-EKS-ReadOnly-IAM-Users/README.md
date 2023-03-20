@@ -191,7 +191,7 @@ output "account_id" {
   value = data.aws_caller_identity.current.account_id
 }
 
-# Sample Role Format: arn:aws:iam::180789647333:role/hr-dev-eks-nodegroup-role
+# Sample Role Format: arn:aws:iam::123456789012:role/hr-dev-eks-nodegroup-role
 # Locals Block
 locals {
   configmap_roles = [
@@ -303,7 +303,7 @@ Kalyans-Mac-mini:01-ekscluster-terraform-manifests kalyanreddy$ aws iam create-a
         "UserName": "hr-dev-eksreadonly1",
         "AccessKeyId": "AKIAIOSFODNN7EXAMPLE",
         "Status": "Active",
-        "SecretAccessKey": "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",
+        "SecretAccessKey": "wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY",
         "CreateDate": "2022-04-24T05:40:49+00:00"
     }
 }
@@ -323,7 +323,7 @@ aws configure list-profiles
 # Configure aws cli eksadmin1 Profile 
 aws configure --profile hr-dev-eksreadonly1
 AWS Access Key ID: AKIAIOSFODNN7EXAMPLE
-AWS Secret Access Key: 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
+AWS Secret Access Key: wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY
 Default region: ap-southeast-1
 Default output format: json
 
@@ -342,8 +342,8 @@ Observation: Should see the user "hr-dev-eksreadonly1" from hr-dev-eksreadonly1 
 Kalyans-Mac-mini:01-ekscluster-terraform-manifests kalyanreddy$ aws sts get-caller-identity
 {
     "UserId": "AIDASUF7HC7S4AEP4ILE2",
-    "Account": "180789647333",
-    "Arn": "arn:aws:iam::180789647333:user/hr-dev-eksreadonly1"
+    "Account": "123456789012",
+    "Arn": "arn:aws:iam::123456789012:user/hr-dev-eksreadonly1"
 }
 Kalyans-Mac-mini:01-ekscluster-terraform-manifests kalyanreddy$ 
 ```
@@ -374,8 +374,8 @@ aws sts get-caller-identity
 Kalyans-Mac-mini:01-ekscluster-terraform-manifests kalyanreddy$ aws sts get-caller-identity
 {
     "UserId": "AROASUF7HC7SRFLFPNG7F:eksadminsession901",
-    "Account": "180789647333",
-    "Arn": "arn:aws:sts::180789647333:assumed-role/hr-dev-eks-readonly-role/eksadminsession901"
+    "Account": "123456789012",
+    "Arn": "arn:aws:sts::123456789012:assumed-role/hr-dev-eks-readonly-role/eksadminsession901"
 }
 Kalyans-Mac-mini:01-ekscluster-terraform-manifests kalyanreddy$ 
 
@@ -467,8 +467,8 @@ Observation: It should switch back to current AWS_DEFAULT_PROFILE hr-dev-eksread
 Kalyans-Mac-mini:01-ekscluster-terraform-manifests kalyanreddy$ aws sts get-caller-identity
 {
     "UserId": "AIDASUF7HC7S4AEP4ILE2",
-    "Account": "180789647333",
-    "Arn": "arn:aws:iam::180789647333:user/hr-dev-eksreadonly1"
+    "Account": "123456789012",
+    "Arn": "arn:aws:iam::123456789012:user/hr-dev-eksreadonly1"
 }
 Kalyans-Mac-mini:01-ekscluster-terraform-manifests kalyanreddy$ 
 
@@ -483,8 +483,8 @@ Observation: Should see the user "kalyandev" (EKS_Cluster_Create_User) from defa
 Kalyans-Mac-mini:01-ekscluster-terraform-manifests kalyanreddy$ aws sts get-caller-identity
 {
     "UserId": "AIDASUF7HC7SSJRDGMFBM",
-    "Account": "180789647333",
-    "Arn": "arn:aws:iam::180789647333:user/kalyandev"
+    "Account": "123456789012",
+    "Arn": "arn:aws:iam::123456789012:user/kalyandev"
 }
 Kalyans-Mac-mini:01-ekscluster-terraform-manifests kalyanreddy$
 ```
@@ -553,8 +553,8 @@ aws sts get-caller-identity
 Kalyans-Mac-mini:01-ekscluster-terraform-manifests kalyanreddy$ aws sts get-caller-identity
 {
     "UserId": "AROASUF7HC7SRFLFPNG7F:eksadminsession501",
-    "Account": "180789647333",
-    "Arn": "arn:aws:sts::180789647333:assumed-role/hr-dev-eks-readonly-role/eksadminsession501"
+    "Account": "123456789012",
+    "Arn": "arn:aws:sts::123456789012:assumed-role/hr-dev-eks-readonly-role/eksadminsession501"
 }
 Kalyans-Mac-mini:01-ekscluster-terraform-manifests kalyanreddy$ 
 
@@ -588,8 +588,8 @@ Observation: It should switch back to current AWS_DEFAULT_PROFILE hr-dev-eksread
 Kalyans-Mac-mini:01-ekscluster-terraform-manifests kalyanreddy$ aws sts get-caller-identity
 {
     "UserId": "AIDASUF7HC7S4AEP4ILE2",
-    "Account": "180789647333",
-    "Arn": "arn:aws:iam::180789647333:user/hr-dev-eksreadonly1"
+    "Account": "123456789012",
+    "Arn": "arn:aws:iam::123456789012:user/hr-dev-eksreadonly1"
 }
 Kalyans-Mac-mini:01-ekscluster-terraform-manifests kalyanreddy$ 
 ```
@@ -602,7 +602,7 @@ Kalyans-Mac-mini:01-ekscluster-terraform-manifests kalyanreddy$
 ```t
 # Error
 Error loading clusters
-User: arn:aws:iam::180789647333:user/hr-dev-eksadmin1 is not authorized to perform: eks:ListClusters on resource: arn:aws:eks:ap-southeast-1:180789647333:cluster/*
+User: arn:aws:iam::123456789012:user/hr-dev-eksadmin1 is not authorized to perform: eks:ListClusters on resource: arn:aws:eks:ap-southeast-1:123456789012:cluster/*
 ```  
 - Click on **Switch Role**
   - **Account:** <YOUR_AWS_ACCOUNT_ID> 

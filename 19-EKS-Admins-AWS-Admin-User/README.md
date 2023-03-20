@@ -22,8 +22,8 @@ aws sts get-caller-identity
 Kalyans-MacBook-Pro:01-ekscluster-terraform-manifests kdaida$ aws sts get-caller-identity
 {
     "UserId": "AIDASUF7HC7SSJRDGMFBM",
-    "Account": "180789647333",
-    "Arn": "arn:aws:iam::180789647333:user/kalyandev"
+    "Account": "123456789012",
+    "Arn": "arn:aws:iam::123456789012:user/kalyandev"
 }
 
 # Make a note of  EKS Cluster Creator user
@@ -77,7 +77,7 @@ User: eksadmin1
         "UserName": "eksadmin1",
         "AccessKeyId": "AKIAIOSFODNN7EXAMPLE",
         "Status": "Active",
-        "SecretAccessKey": "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",
+        "SecretAccessKey": wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY",
         "CreateDate": "2022-03-20T03:19:02+00:00"
     }
 }
@@ -94,7 +94,7 @@ aws configure list-profiles
 # Configure aws cli eksadmin1 Profile 
 aws configure --profile eksadmin1
 AWS Access Key ID: AKIAIOSFODNN7EXAMPLE
-AWS Secret Access Key: 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
+AWS Secret Access Key: wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY
 Default region: ap-southeast-1
 Default output format: json
 
@@ -172,7 +172,7 @@ data:
     - groups:
       - system:bootstrappers
       - system:nodes
-      rolearn: arn:aws:iam::180789647333:role/hr-dev-eks-nodegroup-role
+      rolearn: arn:aws:iam::123456789012:role/hr-dev-eks-nodegroup-role
       username: system:node:{{EC2PrivateDNSName}}
 kind: ConfigMap
 metadata:
@@ -200,7 +200,7 @@ kubectl -n kube-system edit configmap aws-auth
 
 ## mapUsers TEMPLATE - Replaced with IAM User ARN
   mapUsers: |
-    - userarn: arn:aws:iam::180789647333:user/eksadmin1
+    - userarn: arn:aws:iam::123456789012:user/eksadmin1
       username: eksadmin1
       groups:
         - system:masters        
@@ -219,10 +219,10 @@ data:
     - groups:
       - system:bootstrappers
       - system:nodes
-      rolearn: arn:aws:iam::180789647333:role/hr-dev-eks-nodegroup-role
+      rolearn: arn:aws:iam::123456789012:role/hr-dev-eks-nodegroup-role
       username: system:node:{{EC2PrivateDNSName}}
   mapUsers: |
-    - userarn: arn:aws:iam::180789647333:user/eksadmin1
+    - userarn: arn:aws:iam::123456789012:user/eksadmin1
       username: eksadmin1
       groups:
         - system:masters

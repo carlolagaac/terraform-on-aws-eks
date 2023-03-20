@@ -126,12 +126,12 @@ kubectl -n kube-system edit configmap aws-auth
 
 # When replaced with Account ID and IAM Role Name
   mapRoles: |
-    - rolearn: arn:aws:iam::180789647333:role/hr-dev-eks-nodegroup-role
+    - rolearn: arn:aws:iam::123456789012:role/hr-dev-eks-nodegroup-role
       username: system:node:{{EC2PrivateDNSName}}
       groups:
         - system:bootstrappers
         - system:nodes
-    - rolearn: arn:aws:iam::180789647333:role/eks-admin-role
+    - rolearn: arn:aws:iam::123456789012:role/eks-admin-role
       username: eks-admin
       groups:
         - system:masters
@@ -148,9 +148,9 @@ data:
     - groups:
       - system:bootstrappers
       - system:nodes
-      rolearn: arn:aws:iam::180789647333:role/hr-dev-eks-nodegroup-role
+      rolearn: arn:aws:iam::123456789012:role/hr-dev-eks-nodegroup-role
       username: system:node:{{EC2PrivateDNSName}}
-    - rolearn: arn:aws:iam::180789647333:role/eks-admin-role
+    - rolearn: arn:aws:iam::123456789012:role/eks-admin-role
       username: eks-admin
       groups:
         - system:masters
@@ -185,7 +185,7 @@ aws iam create-access-key --user-name eksadmin1
         "UserName": "eksadmin1",
         "AccessKeyId": "AKIAIOSFODNN7EXAMPLE",
         "Status": "Active",
-        "SecretAccessKey": "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",
+        "SecretAccessKey": "wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY",
         "CreateDate": "2022-03-12T05:37:39+00:00"
     }
 }
@@ -202,7 +202,7 @@ aws configure list-profiles
 # Configure aws cli eksadmin1 Profile 
 aws configure --profile eksadmin1
 AWS Access Key ID: AKIAIOSFODNN7EXAMPLE
-AWS Secret Access Key: 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
+AWS Secret Access Key: wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY
 Default region: ap-southeast-1
 Default output format: json
 
@@ -221,8 +221,8 @@ Observation: Should the user "eksadmin1" from eksadmin1 profile, refer below sam
 Kalyans-Mac-mini:01-ekscluster-terraform-manifests kalyanreddy$ aws sts get-caller-identity
 {
     "UserId": "AIDASUF7HC7SQWWZGSGY7",
-    "Account": "180789647333",
-    "Arn": "arn:aws:iam::180789647333:user/eksadmin1"
+    "Account": "123456789012",
+    "Arn": "arn:aws:iam::123456789012:user/eksadmin1"
 }
 Kalyans-Mac-mini:01-ekscluster-terraform-manifests kalyanreddy$ 
 
@@ -265,8 +265,8 @@ aws sts get-caller-identity
 Kalyans-Mac-mini:01-ekscluster-terraform-manifests kalyanreddy$ aws sts get-caller-identity
 {
     "UserId": "AROASUF7HC7S7PCTLZCTE:eksadminsession101",
-    "Account": "180789647333",
-    "Arn": "arn:aws:sts::180789647333:assumed-role/eks-admin-role/eksadminsession101"
+    "Account": "123456789012",
+    "Arn": "arn:aws:sts::123456789012:assumed-role/eks-admin-role/eksadminsession101"
 }
 Kalyans-Mac-mini:01-ekscluster-terraform-manifests kalyanreddy$ 
 
@@ -296,8 +296,8 @@ Observation: It should switch back to current AWS_DEFAULT_PROFILE eksadmin1
 Kalyans-Mac-mini:01-ekscluster-terraform-manifests kalyanreddy$ aws sts get-caller-identity
 {
     "UserId": "AIDASUF7HC7SQWWZGSGY7",
-    "Account": "180789647333",
-    "Arn": "arn:aws:iam::180789647333:user/eksadmin1"
+    "Account": "123456789012",
+    "Arn": "arn:aws:iam::123456789012:user/eksadmin1"
 }
 Kalyans-Mac-mini:01-ekscluster-terraform-manifests kalyanreddy$
 ```
@@ -310,7 +310,7 @@ Kalyans-Mac-mini:01-ekscluster-terraform-manifests kalyanreddy$
 ```t
 # Error
 Error loading clusters
-User: arn:aws:iam::180789647333:user/eksadmin1 is not authorized to perform: eks:ListClusters on resource: arn:aws:eks:ap-southeast-1:180789647333:cluster/*
+User: arn:aws:iam::123456789012:user/eksadmin1 is not authorized to perform: eks:ListClusters on resource: arn:aws:eks:ap-southeast-1:123456789012:cluster/*
 ```  
 - Click on **Switch Role**
   - **Account:** <YOUR_AWS_ACCOUNT_ID> 
